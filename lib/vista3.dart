@@ -12,7 +12,8 @@ class _Vista3State extends State<Vista3> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tercera vista de empleado'),
+        title: Text('Tercera vista de empleado'
+        ),
       ),
       body: Center(
         child: Column(
