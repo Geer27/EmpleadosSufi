@@ -1,21 +1,46 @@
 class Ingreso {
-    String nombre;
-    int anio;
-    double salario;
+  int? id;
+  String nombre;
+  int anio;
+  double salario;
 
-    Ingreso(this.nombre, this.anio, this.salario);
+  Ingreso({
+    this.id,
+    required this.nombre,
+    required this.anio,
+    required this.salario,
+  });
 
-
-
-    String getNombre() {
-      return nombre;
+  Map<String, dynamic> toMap() {
+    final map = {
+      'nombre': nombre,
+      'anio': anio,
+      'salario': salario,
+    };
+    if (id != null) {
+      map['id'] = id!;
     }
+    return map;
+  }
 
-    int getAnio() {
-      return anio;
-    }
+  factory Ingreso.fromMap(Map<String, dynamic> map) {
+    return Ingreso(
+      id: map['id'] as int?,
+      nombre: map['nombre'] as String,
+      anio: map['anio'] as int,
+      salario: (map['salario'] as num).toDouble(),
+    );
+  }
 
-    double getSalario() {
-      return salario;
-    }
+  String getNombre() {
+    return nombre;
+  }
+
+  int getAnio() {
+    return anio;
+  }
+
+  double getSalario() {
+    return salario;
+  }
 }
